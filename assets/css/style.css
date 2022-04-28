@@ -29,24 +29,31 @@ header a {
 /* Hero Style */
 .hero {
     background-image: url(../css/pizza-slice-pattern-background-vector_77417-1389.jpg);
+    opacity: 0.8;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     position: relative;
     min-height: 100vh;
 }
 
 .hero h1 {
-    font-size: 30px;
+    font-size: 80px;
     color: black;
     /* We can think about putting a logo image here later instead of text */
 }
 
+.query {
+    text-align: center;
+    padding: 0px 200px;
+}
+
 .hero ul li {
     list-style-type: none;
+    text-align: left;
 }
 
 .hero ul li a {
