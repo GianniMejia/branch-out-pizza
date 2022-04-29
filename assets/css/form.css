@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+
+}
+
+form {
+    display: block;
+    border: solid 5px blue;
+    width: 30%;
+    margin: 5%;
+    height: 300px;
+    text-align: center;
+    font-size: 30px;
+}
