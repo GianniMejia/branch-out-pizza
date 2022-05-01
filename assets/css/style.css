@@ -1,3 +1,77 @@
-body{
-    background-color: palegoldenrod;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(165, 161, 161);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header {
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color:rgb(202, 34, 34);
+}
+
+header ul li {
+    list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Hero Style */
+.hero {
+    background-image: url(../css/pizza-slice-pattern-background-vector_77417-1389.jpg);
+    opacity: 0.8;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.hero h1 {
+    font-size: 80px;
+    color: black;
+    /* We can think about putting a logo image here later instead of text */
+}
+
+.query {
+    text-align: center;
+    padding: 0px 200px;
+}
+
+.hero ul li {
+    list-style-type: none;
+    text-align: left;
+}
+
+.hero ul li a {
+    text-decoration: none;
+}
+
+
+/* Footer */
+footer {
+    background-color: rgb(202, 34, 34);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 35px;
+    justify-content: space-between;
+}
+
+footer h2 {
+    color: rgb(241, 235, 235);
+    font-size: 30px;
 }
