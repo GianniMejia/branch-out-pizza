@@ -35,7 +35,7 @@ ul {
 }
 
 .company-info {
-    background: url(../images/pizza-slice-pattern-background-vector_77417-1389.jpg);
+    background: rgb(255, 227, 150);
 }
 
 .company-info ul {
@@ -44,7 +44,7 @@ ul {
 }
 
 .contact {
-    background: white;
+    background: rgb(253, 204, 69);
 }
 
 .contact form {
