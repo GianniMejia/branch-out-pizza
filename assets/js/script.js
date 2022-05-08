@@ -45,3 +45,4 @@ document.querySelector('form.searchPizza').addEventListener('submit', function (
     console.log(searchEl.value);
 });
 
+https://code.jquery.com/jquery-3.5.1.min.js
