@@ -36,8 +36,6 @@ var getUserRepos = function (user) {
         });
 };
 
-getUserRepos();
-
 var searchEl = document.getElementById("query");
 
 document.querySelector('form.searchPizza').addEventListener('submit', function (e) {
@@ -45,4 +43,12 @@ document.querySelector('form.searchPizza').addEventListener('submit', function (
     console.log(searchEl.value);
 });
 
-https://code.jquery.com/jquery-3.5.1.min.js
+$.ajax({
+    url      : 'https://api.yelp.com/v3/businesses/search?term=pizza&limit=10&sort_by=rating&location=',
+    dataType : 'jsonp',
+    data     : {term : 'restaurant', lat : xxx, long : xxx}, // callback is not necessary
+    success  : function(data) {
+        // data is a normal response shown on yelp's API page
+    }
+});
+
