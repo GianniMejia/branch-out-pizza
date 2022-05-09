@@ -3,12 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     background-color: rgb(165, 161, 161);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
 header {
     padding: 20px 35px;
     display: flex;
@@ -16,16 +14,13 @@ header {
     flex-wrap: wrap;
     background-color:rgb(202, 34, 34);
 }
-
 header ul li {
     list-style-type: none;
 }
-
 header a {
     text-decoration: none;
     color: white;
 }
-
 /* Hero Style */
 .hero {
     background-image: url(../images/pizza-slice-pattern-background-vector_77417-1389.jpg);
@@ -39,28 +34,21 @@ header a {
     position: relative;
     min-height: 100vh;
 }
-
 .hero h1 {
     font-size: 80px;
     color: black;
     /* We can think about putting a logo image here later instead of text */
 }
-
 .query {
-    text-align: center;
     padding: 0px 200px;
 }
-
 .hero ul li {
     list-style-type: none;
     text-align: left;
 }
-
 .hero ul li a {
     text-decoration: none;
 }
-
-
 /* Footer */
 footer {
     background-color: rgb(202, 34, 34);
@@ -70,8 +58,33 @@ footer {
     padding: 40px 35px;
     justify-content: space-between;
 }
-
 footer h2 {
     color: rgb(241, 235, 235);
     font-size: 30px;
 }
+.pizza-card{
+background-color:  whitesmoke;
+margin: 10px;
+width: 200px;
+}
+.pizza-name{
+    color: blue;
+    font-size:26px;
+}
+.pizza-img{
+border-radius: 50%;
+width: 100px;
+height: 100px;
+}
+.pizza-box {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+  }
+  .red {
+    background-color: red;
+  }
+  .green {
+    background-color: green;
+  }
