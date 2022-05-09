@@ -100,7 +100,7 @@ console.log(isVeg);
     }else {
         pizzaBox.setAttribute('class', 'pizza-box red');
     }
-    //append the li tag to html pagr e 
+    //append the li tag to html page
         pizzaDiv.appendChild(liTag);
         pizzaDiv.appendChild(pizzaBox);
         pizzaDiv.appendChild(liTag2);
