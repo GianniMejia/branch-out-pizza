@@ -1,4 +1,40 @@
-console.log("Loading JS file");
+
+
+// Client ID
+// W4SeAMf4Vb8vGoICvz8uEQ
+
+// API Key
+// RTryU4J16GAHULZZA4wXU-VdzjRKm-_eD9-thaFcVZBGK_viDR-mNto8mf3ec0iJ2ffdoG8fw2LeRRcv-rMWmoyXeSU9pTga8f-zhNS6-llu5jRhw2HPztvTLLB4YnYx
+
+
+
+
+
+// import { client as _client } from 'yelp-fusion';
+
+// // Place holder for Yelp Fusion's API Key. Grab them
+// // from https://www.yelp.com/developers/v3/manage_app
+// const apiKey = '_HyU-LCjmmWczVkUDEHvN1KASN4jZDvg6HlZkt8v-JXQkD2iVhNFu6pnyTV-j37hlQEWO7wVe8nGKuY19V7zSlXaB93v485D79XlT0DIl1kD69R-ykuts-gW6hhvYnYx';
+
+// const searchRequest = {
+//   term:'Local Pizza',
+//   location: 'san francisco, ca'
+// };
+
+// const client = _client(apiKey);
+
+// client.search(searchRequest).then(response => {
+//   const firstResult = response.jsonBody.businesses[0];
+//   const prettyJson = JSON.stringify(firstResult, null, 4);
+//   console.log(prettyJson);
+// }).catch(e => {
+//   console.log(e);
+// });
+
+
+
+
+// console.log("Loading JS file");
 const yelp_key = '_HyU-LCjmmWczVkUDEHvN1KASN4jZDvg6HlZkt8v-JXQkD2iVhNFu6pnyTV-j37hlQEWO7wVe8nGKuY19V7zSlXaB93v485D79XlT0DIl1kD69R-ykuts-gW6hhvYnYx';
 const pnd_key = 'b29978175cmsh7acead99898141dp1966d1jsn9658d91e4b1d';
 const place = "Berkley,CA"
@@ -9,10 +45,10 @@ const options = {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
     },
-    mode: 'cors',
+    mode: 'JSONP',
 };
 var getUserRepos = function (user) {
-    var yelpApi = "https://api.yelp.com/v3/businesses/search?term=pizza&limit=10&sort_by=rating&location=" + place;
+    var yelpApi = "https://api.yelp.com/v3";
     fetch(yelpApi)
         .then(function (response) {
             if (response.ok) {
@@ -26,9 +62,11 @@ var getUserRepos = function (user) {
             }
         })
         .catch(function (error) {
-            alert('Unable to connect to GitHub');
+            alert('Unable to connect to Yelp');
         });
 };
+
+
 var getUserReposOLD = function (user) {
     // var pndApi = "https://pizza-and-desserts.p.rapidapi.com/pizzas";
     //     fetch(pndApi)
@@ -96,5 +134,5 @@ console.log(isVeg);
         ulElement[0].appendChild(pizzaDiv);
     }
 }
-// getUserRepos();
+getUserRepos();
 getUserReposOLD();

@@ -88,3 +88,17 @@ height: 100px;
   .green {
     background-color: green;
   }
+
+  .pizza-list {
+      background-image: url(../images/pizza-slice-pattern-background-vector_77417-1389.jpg);
+      background-position: center;
+      background-size:contain;
+      text-align: center;
+  }
+
+  .pizza-results {
+      width: 90%;
+      display:flex;
+      flex-wrap: wrap;
+
+  }
