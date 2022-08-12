@@ -1,89 +1,42 @@
+var pizzaRecipes = function () {
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '48bf167781mshb0c05079ca1a209p1d0909jsnecfac70feb12',
+		'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+	}
+};
+
+fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=pizza&intolerances=egg%2C%20gluten&number=30&offset=0&type=main%20course', options)
+	.then(response => response.json())
+	.then(response => {
+        console.log(response)
+        displayRandomPizza(response);
+    }
+    )
+	.catch(err => console.error(err));
+
+}
+    
+
+function displayRandomPizza(data) {
+    var ulElement = document.getElementsByClassName('recipe-card');
+    console.log(ulElement);
+
+    for (var i = 0; i < data.length; i++) {
+        console.log(i);
+
+        var singleRecipe = document.createElement("div");
+        singleRecipe.setAttribute('class', 'recipe-card');
+
+    }
+}
 
 
-// Client ID
-// W4SeAMf4Vb8vGoICvz8uEQ
 
-// API Key
-// RTryU4J16GAHULZZA4wXU-VdzjRKm-_eD9-thaFcVZBGK_viDR-mNto8mf3ec0iJ2ffdoG8fw2LeRRcv-rMWmoyXeSU9pTga8f-zhNS6-llu5jRhw2HPztvTLLB4YnYx
-
-
-
-
-
-// import { client as _client } from 'yelp-fusion';
-
-// // Place holder for Yelp Fusion's API Key. Grab them
-// // from https://www.yelp.com/developers/v3/manage_app
-// const apiKey = '_HyU-LCjmmWczVkUDEHvN1KASN4jZDvg6HlZkt8v-JXQkD2iVhNFu6pnyTV-j37hlQEWO7wVe8nGKuY19V7zSlXaB93v485D79XlT0DIl1kD69R-ykuts-gW6hhvYnYx';
-
-// const searchRequest = {
-//   term:'Local Pizza',
-//   location: 'san francisco, ca'
-// };
-
-// const client = _client(apiKey);
-
-// client.search(searchRequest).then(response => {
-//   const firstResult = response.jsonBody.businesses[0];
-//   const prettyJson = JSON.stringify(firstResult, null, 4);
-//   console.log(prettyJson);
-// }).catch(e => {
-//   console.log(e);
-// });
-
-
-
-
-// console.log("Loading JS file");
-const yelp_key = '_HyU-LCjmmWczVkUDEHvN1KASN4jZDvg6HlZkt8v-JXQkD2iVhNFu6pnyTV-j37hlQEWO7wVe8nGKuY19V7zSlXaB93v485D79XlT0DIl1kD69R-ykuts-gW6hhvYnYx';
 const pnd_key = 'b29978175cmsh7acead99898141dp1966d1jsn9658d91e4b1d';
-// const place = "Berkley,CA"
-// const options = {
-//     method: 'GET',
-//     headers: {
-//         'Authorization': "Bearer" + yelp_key,
-//         'Content-Type': 'application/json',
-//         "Access-Control-Allow-Origin": "*",
-//     },
-//     mode: '',
-// };
-// var getUserRepos = function (user) {
-//     var yelpApi = "https://api.yelp.com/v3";
-//     fetch(yelpApi)
-//         .then(function (response) {
-//             if (response.ok) {
-//                 console.log(response);
-//                 response.json().then(function (data) {
-//                     console.log(data);
-//                     displayRepos(data, user);
-//                 });
-//             } else {
-//                 alert('Error: ' + response.statusText);
-//             }
-//         })
-//         .catch(function (error) {
-//             alert('Unable to connect to Yelp');
-//         });
-// };
 
-
-var getUserReposOLD = function (user) {
-    // var pndApi = "https://pizza-and-desserts.p.rapidapi.com/pizzas";
-    //     fetch(pndApi)
-    //         .then(function (response) {
-    //             if (response.ok) {
-    //                 console.log(response);
-    //                 response.json().then(function (data) {
-    //                     console.log(data);
-    //                     displayRepos(data, user);
-    //                 });
-    //             } else {
-    //                 alert('Error: ' + response.statusText);
-    //             }
-    //         })
-    //         .catch(function (error) {
-    //             alert('Unable to connect to GitHub');
-    //         });
+var pullPizzaList = function (user) {
     const options = {
         method: 'GET',
         headers: {
@@ -95,12 +48,12 @@ var getUserReposOLD = function (user) {
         .then(response => response.json())
         .then(response => {
             console.log(response)
-            displayRepos(response, user);
+            displayPizzas(response, user);
         }
         )
         .catch(err => console.error(err));
 };
-function displayRepos(data, user) {
+function displayPizzas(data, user) {
     //grab the ul element from index.html
     var ulElement = document.getElementsByClassName('pizza-results');
     console.log(ulElement);
@@ -134,5 +87,6 @@ console.log(isVeg);
         ulElement[0].appendChild(pizzaDiv);
     }
 }
-// getUserRepos();
-getUserReposOLD();
+
+pullPizzaList();
+pizzaRecipes();
