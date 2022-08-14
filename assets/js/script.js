@@ -1,4 +1,7 @@
-var pizzaRecipes = function () {
+// spoontacular api function for random recipe
+
+displayRecipe = function () {
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -7,30 +10,20 @@ const options = {
 	}
 };
 
-fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=pizza&intolerances=egg%2C%20gluten&number=30&offset=0&type=main%20course', options)
+fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=pizza&number=30&offset=0', options)
 	.then(response => response.json())
-	.then(response => {
-        console.log(response)
-        displayRandomPizza(response);
-    }
-    )
+	.then(response => { 
+        let i = Math.floor(Math.random()*response.results.length);
+        let randomRecipe = [response.results[i].image];
+        document.getElementById('recipe-card').innerHTML = randomRecipe;
+        console.log(response.results[0]);
+    })
 	.catch(err => console.error(err));
 
 }
-    
+// end spoontacular api
 
-function displayRandomPizza(data) {
-    var ulElement = document.getElementsByClassName('recipe-card');
-    console.log(ulElement);
 
-    for (var i = 0; i < data.length; i++) {
-        console.log(i);
-
-        var singleRecipe = document.createElement("div");
-        singleRecipe.setAttribute('class', 'recipe-card');
-
-    }
-}
 
 
 
@@ -53,7 +46,7 @@ var pullPizzaList = function (user) {
         )
         .catch(err => console.error(err));
 };
-function displayPizzas(data, user) {
+function displayPizzas(data) {
     //grab the ul element from index.html
     var ulElement = document.getElementsByClassName('pizza-results');
     console.log(ulElement);
@@ -89,4 +82,3 @@ console.log(isVeg);
 }
 
 pullPizzaList();
-pizzaRecipes();
