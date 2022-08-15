@@ -22,18 +22,20 @@ fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searc
 	.then(response => response.json())
 	.then(response => { 
 
-        recipe = document.getElementById('recipe-link');
-        if (recipe === true) {
-            recipe.remove()
-        } 
+        // recipe = document.getElementById('recipe-link');
+        // if (recipe === true) {
+        //     recipe.remove()
+        // } 
 
-        console.log(response.results);
-
+        // console.log(response.results);
+        
         let i = Math.floor(Math.random()*response.results.length);
         
-    // url link created with random result    
+        const element = document.getElementById('recipe-link');
+        element?.remove();
+        // url link created with random result    
         var a = document.createElement('a');
-        a.setAttribute('id', 'recipe-link')
+        a.setAttribute('id', 'recipe-link');
         var link = document.createTextNode(response.results[i].title);
         a.appendChild(link);
         a.title = response.results[i].title;
@@ -53,7 +55,7 @@ fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searc
        
     // let randomRecipe = [response.results[i].title];
     //     document.getElementById('recipe-card').innerHTML = randomRecipe;
-        console.log(response.results[0]);
+        console.log(response.results[i]);
     })
 	.catch(err => console.error(err));
 
