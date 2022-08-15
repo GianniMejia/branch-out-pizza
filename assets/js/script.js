@@ -1,5 +1,13 @@
 // spoontacular api function for random recipe
 
+// deleteLink = function() {
+//     if (document.getElementById('recipe-link') === true) {
+//         document.getElementById('recipe-link').remove
+//     } else {
+        
+//     }
+// }
+
 displayRecipe = function () {
 
 const options = {
@@ -13,9 +21,38 @@ const options = {
 fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=pizza&number=30&offset=0', options)
 	.then(response => response.json())
 	.then(response => { 
+
+        recipe = document.getElementById('recipe-link');
+        if (recipe === true) {
+            recipe.remove()
+        } 
+
+        console.log(response.results);
+
         let i = Math.floor(Math.random()*response.results.length);
-        let randomRecipe = [response.results[i].image];
-        document.getElementById('recipe-card').innerHTML = randomRecipe;
+        
+    // url link created with random result    
+        var a = document.createElement('a');
+        a.setAttribute('id', 'recipe-link')
+        var link = document.createTextNode(response.results[i].title);
+        a.appendChild(link);
+        a.title = response.results[i].title;
+        a.href = response.results[i].sourceUrl;
+        document.getElementById('recipe-card').append(a);
+
+    // url link end    
+        
+    
+
+
+    // var recipeImage = document.createElement("a");
+    // recipeImage.setAttribute('class', 'recipe-image');
+    // recipeImage.setAttribute('href', response.results[i].sourceUrl+response.results[i].image);
+
+    // console.log(recipeImage);
+       
+    // let randomRecipe = [response.results[i].title];
+    //     document.getElementById('recipe-card').innerHTML = randomRecipe;
         console.log(response.results[0]);
     })
 	.catch(err => console.error(err));
