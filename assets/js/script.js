@@ -1,13 +1,5 @@
 // spoontacular api function for random recipe
 
-// deleteLink = function() {
-//     if (document.getElementById('recipe-link') === true) {
-//         document.getElementById('recipe-link').remove
-//     } else {
-        
-//     }
-// }
-
 displayRecipe = function () {
 
 const options = {
@@ -22,17 +14,14 @@ fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searc
 	.then(response => response.json())
 	.then(response => { 
 
-        // recipe = document.getElementById('recipe-link');
-        // if (recipe === true) {
-        //     recipe.remove()
-        // } 
-
         // console.log(response.results);
         
         let i = Math.floor(Math.random()*response.results.length);
         
         const element = document.getElementById('recipe-link');
         element?.remove();
+     
+     
         // url link created with random result    
         var a = document.createElement('a');
         a.setAttribute('id', 'recipe-link');
@@ -42,24 +31,40 @@ fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/searc
         a.href = response.results[i].sourceUrl;
         document.getElementById('recipe-card').append(a);
 
-    // url link end    
-        
-    
-
-
-    // var recipeImage = document.createElement("a");
-    // recipeImage.setAttribute('class', 'recipe-image');
-    // recipeImage.setAttribute('href', response.results[i].sourceUrl+response.results[i].image);
-
-    // console.log(recipeImage);
-       
-    // let randomRecipe = [response.results[i].title];
-    //     document.getElementById('recipe-card').innerHTML = randomRecipe;
-        console.log(response.results[i]);
-    })
-	.catch(err => console.error(err));
-
+        // save recipe to local storage and load up to 5 into id "recipe-list"
+        let recipeList = JSON.parse(localStorage.getItem('recipeList')) || [];
+        recipeList.push(response.results[i]);
+        localStorage.setItem('recipeList', JSON.stringify(recipeList));
+        if (recipeList.length > 5) {
+            recipeList.shift();
+        }
+        localStorage.setItem('recipeList', JSON.stringify(recipeList));
+        console.log(recipeList);
+        displayRecipeList(recipeList);
+                        }               
+                                    )           
+                                    .catch(err => console.error(err));
 }
+
+// display recipes url in recipe-list in ascending order in li tags
+function displayRecipeList(recipeList) {
+    let recipeListDiv = document.getElementById('recipe-list');
+    recipeListDiv.innerHTML = '';
+    for (let i = 0; i < recipeList.length; i++) {
+        let a = document.createElement('a');
+        a.setAttribute('id', 'recipe-link');
+        var link = document.createTextNode(recipeList[i].title);
+        a.appendChild(link);
+        a.title = recipeList[i].title;
+        a.href = recipeList[i].sourceUrl;
+        let li = document.createElement('li');
+        li.appendChild(a);
+        recipeListDiv.appendChild(li);
+    }
+}
+
+
+
 // end spoontacular api
 
 
